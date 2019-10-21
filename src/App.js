@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Player from "./components/Player";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    players: [
+      {
+        name: "Real Madrid",
+        score: 0,
+        id: 1
+      },
+      {
+        name: "Barcelona",
+        score: 0,
+        id: 2
+      },
+      {
+        name: "Bayern",
+        score: 0,
+        id: 3
+      },
+      {
+        name: "Liverpool",
+        score: 0,
+        id: 4
+      }
+    ]
+  };
+
+  handleScoreChange = (index, delta) => {
+    this.setState(prevState => {
+      return {
+        score: (prevState.players[index].score += delta)
+      };
+    });
+    console.log(index);
+  };
+
+  handleRemovePlayer = id => {
+    this.setState(prevState => {
+      return {
+        players: prevState.players.filter(p => p.id !== id)
+      };
+    });
+    console.log(id);
+  };
+
+  render() {
+    return (
+      <div className="scoreboard">
+        <Header title="Game Scoreboard" players={this.state.players} />
+        {/* Players list */}
+        {this.state.players.map((player, index) => (
+          <Player
+            score={player.score}
+            name={player.name}
+            id={player.id}
+            key={player.id.toString()}
+            index={index}
+            remove={this.handleRemovePlayer}
+            changeScore={this.handleScoreChange}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
