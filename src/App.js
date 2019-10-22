@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Player from "./components/Player";
+import AddTeam from "./components/AddTeam";
 
 class App extends Component {
   state = {
@@ -63,6 +64,7 @@ class App extends Component {
             changeScore={this.handleScoreChange}
           />
         ))}
+        <AddTeam />
       </div>
     );
   }
