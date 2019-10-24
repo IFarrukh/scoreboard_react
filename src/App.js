@@ -29,6 +29,8 @@ class App extends Component {
       }
     ]
   };
+  //playerIdCounter
+  prevPlayrId = 4;
 
   handleScoreChange = (index, delta) => {
     this.setState(prevState => {
@@ -47,6 +49,21 @@ class App extends Component {
     });
     console.log(id);
   };
+  handleAddTeam = name => {
+    this.setState(prevState => {
+      return {
+        players: [
+          ...prevState.players,
+          {
+            name: name,
+            score: 0,
+            id: (this.prevPlayrId += 1)
+          }
+        ]
+      };
+    });
+    console.log(name);
+  };
 
   render() {
     return (
@@ -64,7 +81,7 @@ class App extends Component {
             changeScore={this.handleScoreChange}
           />
         ))}
-        <AddTeam />
+        <AddTeam addTeam={this.handleAddTeam} />
       </div>
     );
   }
