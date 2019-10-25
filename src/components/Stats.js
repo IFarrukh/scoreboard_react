@@ -1,16 +1,16 @@
 import React from "react";
 
 const Stats = props => {
-  const totalPlayer = props.players.length;
-  const totalScore = props.players.reduce((total, player) => {
-    return total + player.score;
+  const totalTeam = props.teams.length;
+  const totalScore = props.teams.reduce((total, team) => {
+    return total + team.score;
   }, 0);
   return (
     <table className="stats">
       <tbody>
         <tr>
           <td>Players:</td>
-          <td>{totalPlayer}</td>
+          <td>{totalTeam}</td>
         </tr>
         <tr>
           <td>Total Points:</td>

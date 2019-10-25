@@ -1,14 +1,11 @@
 import React from "react";
 import Counter from "./Counter";
 
-const Player = props => {
+const Team = props => {
   return (
-    <div className="player">
-      <span className="player-name">
-        <button
-          className="remove-player"
-          onClick={() => props.remove(props.id)}
-        >
+    <div className="team">
+      <span className="team-name">
+        <button className="remove-team" onClick={() => props.remove(props.id)}>
           ✖
         </button>
         {props.name}
@@ -23,4 +20,4 @@ const Player = props => {
   );
 };
 
-export default Player;
+export default Team;

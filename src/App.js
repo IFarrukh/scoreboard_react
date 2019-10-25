@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Player from "./components/Player";
+import Team from "./components/Team";
 import AddTeam from "./components/AddTeam";
 
 class App extends Component {
   state = {
-    players: [
+    teams: [
       {
         name: "Real Madrid",
         score: 0,
@@ -30,21 +30,21 @@ class App extends Component {
     ]
   };
   //playerIdCounter
-  prevPlayrId = 4;
+  prevTeamId = 4;
 
   handleScoreChange = (index, delta) => {
     this.setState(prevState => {
       return {
-        score: (prevState.players[index].score += delta)
+        score: (prevState.teams[index].score += delta)
       };
     });
     console.log(index);
   };
 
-  handleRemovePlayer = id => {
+  handleRemoveTeam = id => {
     this.setState(prevState => {
       return {
-        players: prevState.players.filter(p => p.id !== id)
+        teams: prevState.teams.filter(p => p.id !== id)
       };
     });
     console.log(id);
@@ -52,32 +52,31 @@ class App extends Component {
   handleAddTeam = name => {
     this.setState(prevState => {
       return {
-        players: [
-          ...prevState.players,
+        teams: [
+          ...prevState.teams,
           {
             name: name,
             score: 0,
-            id: (this.prevPlayrId += 1)
+            id: (this.prevTeamId += 1)
           }
         ]
       };
     });
-    console.log(name);
   };
 
   render() {
     return (
       <div className="scoreboard">
-        <Header title="Game Scoreboard" players={this.state.players} />
+        <Header title="Game Scoreboard" teams={this.state.teams} />
         {/* Players list */}
-        {this.state.players.map((player, index) => (
-          <Player
-            score={player.score}
-            name={player.name}
-            id={player.id}
-            key={player.id.toString()}
+        {this.state.teams.map((team, index) => (
+          <Team
+            score={team.score}
+            name={team.name}
+            id={team.id}
+            key={team.id.toString()}
             index={index}
-            remove={this.handleRemovePlayer}
+            remove={this.handleRemoveTeam}
             changeScore={this.handleScoreChange}
           />
         ))}
