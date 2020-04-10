@@ -47,7 +47,6 @@ class App extends Component {
         teams: prevState.teams.filter(p => p.id !== id)
       };
     });
-    console.log(id);
   };
   handleAddTeam = name => {
     this.setState(prevState => {

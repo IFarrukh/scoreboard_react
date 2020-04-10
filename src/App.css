@@ -1,5 +1,4 @@
 /* ELEMENT STYLES -------------------- */
-
 body {
   background: #e8e7e7;
   font-family: arial;
@@ -7,13 +6,13 @@ body {
 }
 
 header {
-  color: #fff;
+  color: #FFF;
   padding: 5px 10px;
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #8063fa;
-  border-bottom: solid 2px #d4caff;
+  background-color: #8063FA;
+  border-bottom: solid 2px #D4CAFF;
 }
 
 header h1 {
@@ -24,23 +23,22 @@ header h1 {
 }
 
 /* FORMS */
-
 form {
   display: flex;
-  background-color: #8063fa;
+  background-color: #8063FA;
 }
 
-input[type="text"] {
+input[type=text] {
   flex-grow: 1;
   border-width: 0 0 1px 0;
   margin: 15px 10px 15px 15px;
   padding: 10px;
   border-radius: 5px;
-  background-color: #5b45b9;
+  background-color: #5B45B9;
   border-style: none;
   text-shadow: none;
   text-transform: uppercase;
-  color: #c7bcf8;
+  color: #C7BCF8;
   letter-spacing: 2px;
   outline: none;
 }
@@ -77,7 +75,6 @@ input[type="submit"] {
 }
 
 /* ICONS */
-
 svg {
   width: 28px;
   height: 19px;
@@ -98,7 +95,6 @@ svg {
 }
 
 /* COMPONENT STYLES -------------------- */
-
 .scoreboard {
   background: #fff;
   width: 700px;

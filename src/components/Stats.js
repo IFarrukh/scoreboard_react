@@ -1,8 +1,8 @@
 import React from "react";
 
-const Stats = props => {
-  const totalTeam = props.teams.length;
-  const totalScore = props.teams.reduce((total, team) => {
+const Stats = ({ teams }) => {
+  const totalTeam = teams.length;
+  const totalScore = teams.reduce((total, team) => {
     return total + team.score;
   }, 0);
   return (
